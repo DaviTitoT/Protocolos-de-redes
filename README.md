@@ -2,17 +2,15 @@
 
 Estudo comparativo do protocolo **HTTP** em um cenário realista de desenvolvimento de sistemas, avaliando seu desempenho e sua adequação em relação a outras alternativas de comunicação.
 
----
 
-## 📖 Sobre o projeto
+##  Sobre o projeto
 
 Este projeto foi desenvolvido com o objetivo de demonstrar, por meio de um cenário prático, por que o protocolo **HTTP** continua sendo a melhor escolha para diversas aplicações distribuídas modernas.
 
 Além de apresentar uma fundamentação teórica, o projeto inclui um **benchmark em Python** para comparar o comportamento do HTTP com outros mecanismos de comunicação, analisando aspectos como desempenho, confiabilidade e facilidade de integração.
 
----
 
-## 🎯 Objetivo
+##  Objetivo
 
 Avaliar diferentes formas de comunicação entre sistemas e demonstrar, através de experimentos, em quais situações o protocolo HTTP apresenta a melhor relação entre:
 
@@ -23,9 +21,9 @@ Avaliar diferentes formas de comunicação entre sistemas e demonstrar, através
 * escalabilidade;
 * suporte pelas tecnologias atuais.
 
----
 
-## 🏥 Cenário proposto
+
+##  Cenário proposto
 
 Foi considerado o desenvolvimento de um **sistema hospitalar distribuído**, onde diferentes serviços precisam trocar informações em tempo real, como:
 
@@ -39,9 +37,9 @@ Nesse cenário, diversos clientes (navegadores, aplicativos móveis e outros sis
 
 Embora existam protocolos potencialmente mais rápidos em situações específicas, o HTTP oferece um equilíbrio muito superior entre desempenho, simplicidade, compatibilidade e facilidade de manutenção.
 
----
 
-## ⚖️ Protocolos comparados
+
+##  Protocolos comparados
 
 O estudo realiza uma comparação entre:
 
@@ -61,9 +59,9 @@ Foram analisados critérios como:
 * segurança;
 * escalabilidade.
 
----
 
-## 📊 Benchmark
+
+##  Benchmark
 
 O notebook realiza testes locais simulando múltiplas requisições HTTP.
 
@@ -76,9 +74,9 @@ São coletadas métricas como:
 
 Os resultados servem como base para justificar tecnicamente a utilização do HTTP no cenário apresentado.
 
----
 
-## 🛠 Tecnologias utilizadas
+
+##  Tecnologias utilizadas
 
 * Python 3
 * Flask
@@ -87,9 +85,9 @@ Os resultados servem como base para justificar tecnicamente a utilização do HT
 * Threading
 * Jupyter Notebook
 
----
 
-## ▶️ Como executar
+
+##  Como executar
 
 ### 1. Clone o repositório
 
@@ -119,9 +117,9 @@ comparacao_http_protocolos.ipynb
 
 e execute todas as células.
 
----
 
-## 📈 Resultados esperados
+
+##  Resultados esperados
 
 Os experimentos mostram que:
 
@@ -130,16 +128,16 @@ Os experimentos mostram que:
 * sua padronização facilita integrações entre diferentes linguagens e plataformas;
 * recursos como HTTPS, autenticação, cache e APIs REST tornam sua adoção a opção mais prática para aplicações modernas.
 
----
 
-## 💡 Conclusão
+
+##  Conclusão
 
 Embora existam protocolos especializados para cenários específicos, como streaming contínuo, jogos online ou sistemas embarcados, o HTTP continua sendo a escolha mais equilibrada para a maioria das aplicações distribuídas.
 
 Sua ampla adoção pela indústria, facilidade de integração, suporte nativo em praticamente todas as plataformas e excelente relação entre desempenho e confiabilidade justificam sua utilização como protocolo principal em sistemas web modernos.
 
----
 
-## 👨‍💻 Autor
+
+##  Autor
 
 Desenvolvido como projeto de estudo sobre protocolos de comunicação em redes de computadores e avaliação de desempenho do protocolo HTTP.
