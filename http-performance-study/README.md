@@ -1,15 +1,43 @@
 # HTTP Performance Study
 
-Este projeto reúne uma estrutura inicial para estudar o desempenho de protocolos HTTP em cenários de benchmark.
+## Descrição
+Este projeto tem como objetivo demonstrar, por meio de um cenário realista e benchmarks em Python, por que o protocolo HTTP é uma escolha adequada para sistemas distribuídos em contexto hospitalar, comparando-o com TCP.
 
-## Estrutura
+## Objetivo
+Avaliar o comportamento de requisições HTTP e TCP em cenários de comunicação entre módulos de um sistema hospitalar, considerando simplicidade de implementação, interoperabilidade, rastreabilidade e desempenho prático.
 
-- docs/: notebook com análise comparativa.
-- src/: scripts de servidor, cliente e benchmark.
-- data/: arquivo CSV para armazenar resultados.
+## Cenário
+O estudo simula um ambiente em que um cliente envia solicitações para um serviço de integração hospitalar. O foco é observar o tempo de resposta e a viabilidade de uso em um ambiente realista, sem depender de uma infraestrutura complexa.
 
-## Como usar
+## Tecnologias
+- Python 3
+- Flask
+- Requests
+- Matplotlib
+- Pandas
+- Jupyter Notebook
 
-1. Instale as dependências com `pip install -r requirements.txt`.
-2. Execute o servidor com `python src/server.py`.
-3. Rode o benchmark com `python src/benchmark.py`.
+## Estrutura do projeto
+- docs/: notebook com introdução, fundamentação, metodologia e análise parcial.
+- src/: implementações de servidores e clientes HTTP/TCP, além do benchmark.
+- data/: arquivos CSV e imagens geradas pelos testes.
+
+## Instruções de execução
+1. Entre na pasta do projeto.
+2. Crie um ambiente virtual e instale as dependências:
+   - `python -m venv .venv`
+   - `.venv\Scripts\activate`
+   - `python -m pip install -r requirements.txt`
+3. Execute o benchmark completo:
+   - `python src/benchmark.py`
+4. Para testes manuais:
+   - HTTP: `python src/server_http.py --port 8001` e `python src/client_http.py`
+   - TCP: `python src/server_tcp.py --port 9001` e `python src/client_tcp.py`
+
+## Resultados parciais
+Os benchmarks geram um arquivo CSV em data/resultados.csv e um gráfico em data/benchmark_http_tcp.png com a comparação entre HTTP e TCP.
+
+## Próximas etapas
+- ampliar a análise com benchmark UDP;
+- incluir mais métricas, como taxa de sucesso e variabilidade;
+- concluir a seção final do notebook com referências e análise consolidada.
