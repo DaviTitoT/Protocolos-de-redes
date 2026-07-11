@@ -35,9 +35,14 @@ O estudo simula um ambiente em que um cliente envia solicitações para um servi
    - TCP: `python src/server_tcp.py --port 9001` e `python src/client_tcp.py`
 
 ## Resultados parciais
-Os benchmarks geram um arquivo CSV em data/resultados.csv e um gráfico em data/benchmark_http_tcp.png com a comparação entre HTTP e TCP.
+Os benchmarks geram um arquivo CSV em `data/resultados.csv`, um gráfico em `data/benchmark_http_tcp.png` e um resumo estatístico em `data/summary.csv`.
+
+## Status atual
+- Progresso aproximado: 70%.
+- Concluído: benchmark HTTP e TCP, documentação parcial, estrutura do projeto e geração automática de gráficos.
+- Em andamento: análise final, benchmark UDP e conclusão do notebook.
 
 ## Próximas etapas
 - ampliar a análise com benchmark UDP;
 - incluir mais métricas, como taxa de sucesso e variabilidade;
-- concluir a seção final do notebook com referências e análise consolidada.
+- documentar a análise parcial no notebook e finalizar a seção de conclusão e referências.

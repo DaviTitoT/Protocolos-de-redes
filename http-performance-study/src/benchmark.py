@@ -1,5 +1,6 @@
 import csv
 import socket
+import statistics
 import subprocess
 import sys
 import time
@@ -11,6 +12,7 @@ import requests
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 CSV_PATH = DATA_DIR / "resultados.csv"
+SUMMARY_PATH = DATA_DIR / "summary.csv"
 IMAGE_PATH = DATA_DIR / "benchmark_http_tcp.png"
 
 
@@ -69,6 +71,21 @@ def measure_tcp(iterations=10):
     return measurements
 
 
+def _summarize(results):
+    if not results:
+        return {}
+
+    times = [item["elapsed_s"] for item in results]
+    return {
+        "count": len(times),
+        "mean": statistics.mean(times),
+        "median": statistics.median(times),
+        "stdev": statistics.stdev(times) if len(times) > 1 else 0.0,
+        "min": min(times),
+        "max": max(times),
+    }
+
+
 def save_results(http_results, tcp_results):
     DATA_DIR.mkdir(exist_ok=True)
     rows = []
@@ -83,6 +100,19 @@ def save_results(http_results, tcp_results):
         writer.writerows(rows)
 
     print(f"Resultados salvos em {CSV_PATH}")
+
+
+def save_summary(http_results, tcp_results):
+    http_summary = _summarize(http_results)
+    tcp_summary = _summarize(tcp_results)
+
+    with SUMMARY_PATH.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["protocol", "count", "mean_s", "median_s", "stdev_s", "min_s", "max_s"])
+        writer.writerow(["HTTP", http_summary["count"], http_summary["mean"], http_summary["median"], http_summary["stdev"], http_summary["min"], http_summary["max"]])
+        writer.writerow(["TCP", tcp_summary["count"], tcp_summary["mean"], tcp_summary["median"], tcp_summary["stdev"], tcp_summary["min"], tcp_summary["max"]])
+
+    print(f"Resumo estatístico salvo em {SUMMARY_PATH}")
 
 
 def plot_results(http_results, tcp_results):
@@ -115,6 +145,7 @@ def run_benchmark(iterations=10):
         http_results = measure_http(iterations)
         tcp_results = measure_tcp(iterations)
         save_results(http_results, tcp_results)
+        save_summary(http_results, tcp_results)
         plot_results(http_results, tcp_results)
     finally:
         _stop_server(http_process)
